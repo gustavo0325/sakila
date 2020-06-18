@@ -1,0 +1,12 @@
+  
+Mi pagina web: gustavo0325.000webhostapp.com
+
+
+Conexion ftp
+
+servidor: files.000webhost.com
+nombre usuario: gustavo0325
+contraseña: justyn2503
+
+
+informacion de Base de datos
