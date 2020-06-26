@@ -19,7 +19,7 @@
 
                 </div>
 
-                <button type="submit" name="guardarIdioma" class="btn btn-primary">Guardar datos tienda</button>
+                <button type="submit" name="guardarIdioma" class="btn btn-prymary">guardar idioma</button>
 
             </form>
 
