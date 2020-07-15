@@ -1,8 +1,6 @@
+<?php include_once "partes/parte_head.php" ?>
 
-
-<?php include_once "partes/parte_head.php"?>
-
-<?php include_once "partes/parte_menu.php"?>
+<?php include_once "partes/parte_menu.php" ?>
 
 <hr class="bg-light">
 
@@ -30,8 +28,19 @@
 
             <div class="mb-3">
                 <label for="ciudad">Ciudad</label>
-                <select name="ciudad" id="ciudad"class="form-select">
-                    <option value="">Aqui va el listado de la ciudad, desde sql</option>
+                <select name="ciudad" id="ciudad" class="form-select">
+                    <option value="">Elige una ciudad</option>
+                    <?php
+
+                    foreach ($ciudades as $ciudad) {
+
+                        echo "<option value=\"{$ciudad[city_id]}}\">{$ciudad["city"]}</option>";
+
+                    }
+
+                    ?>
+
+
                 </select>
             </div>
 
@@ -50,19 +59,12 @@
                 <input type="text" name="ubicacion" id="ubicacion" class="form-control">
             </div>
 
-         <button type="submit" name="guardarDireccion" class="btn btn-primary">Guardar datos</button>
-
+            <button type="submit" name="guardarDireccion" class="btn btn-primary">Guardar datos</button>
 
 
         </form>
 
 
-
-
     </div>
 </div>
-</div>
 
-
-</body>
-</html>

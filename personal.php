@@ -1,5 +1,13 @@
 <?php
+//incluir los modelos
+require_once "funciones/helpers.php";
+require_once "modelos/modelo_tienda.php";
+require_once "modelos/modelo_direccion.php";
+
 $nombrepagina = "Personal";
+$tiendas = obtenerTiendas($conexion);
+$direcciones = obtenerDireccion($conexion);
+
 
 $nombrePersonal = $_GET['nombre'] ?? "";
 $apellidoPersonal = $_GET['apellido'] ?? "";

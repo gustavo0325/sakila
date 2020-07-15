@@ -11,6 +11,7 @@
     <div class="row">
 
         <div class="col-md-5">
+
             <form action="pais.php" method="get">
 
                 <div class="mb-3">
@@ -22,11 +23,44 @@
                 <button type="submit" name="guardarPais" class="btn btn-primary">Guardar pais</button>
 
             </form>
+
         </div>
+
     </div>
 
 </div>
 
 
-</body>
-</html>
+<hr class="bg-light">
+
+<div class="row container">
+    <div class="col-md-5">
+
+        <table class="table table-hover table-dark table-striped">
+
+            <thead>
+            <th scope="col">ID</th>
+            <th scope="col">Pais</th>
+
+            </thead>
+
+            <tbody>
+
+            <?php
+            foreach ($paises as $pais) {
+
+
+                echo "<tr>
+                <th scope=\"row\">{$pais['country_id']}</th>
+                <td>{$pais['country']}</td>
+               
+            </tr>";
+            }
+
+            ?>
+
+            </tbody>
+
+        </table>
+    </div>
+</div>

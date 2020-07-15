@@ -22,7 +22,20 @@
                     <label for="pais">Pais</label>
 
                     <select name="pais" id="pais" class="form-select">
-                        <option value="">Aqui va el listado de la ciudad, desde sql</option>
+                        <option value="">Selecciona un pais</option>
+
+                        <?php
+
+                        foreach ($paises as $pais){
+
+                            echo "<option value=\"{$pais[country_id]}}\">{$pais["country"]}</option>";
+
+                        }
+
+                        ?>
+
+
+
                     </select>
 
 
@@ -37,6 +50,39 @@
 
 </div>
 
+<hr class="bg-light">
 
-</body>
-</html>
+<div class="row container">
+    <div class="col-md-9">
+
+        <table class="table table-hover table-dark table-striped">
+
+            <thead>
+            <th scope="col">ID de la ciudad</th>
+            <th scope="col">Nombre de la ciudad</th>
+            <th scope="col">Nombre del pais</th>
+            </thead>
+
+            <tbody>
+
+            <?php
+            foreach ($ciudades as $ciudad){
+
+
+                echo"<tr>
+                <th scope=\"row\">{$ciudad['city_id']}</th>
+                <td>{$ciudad['city']}</td>
+                <td>{$ciudad['country']}</td>
+            </tr>" ;
+            }
+
+            ?>
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+

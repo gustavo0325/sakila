@@ -1,4 +1,8 @@
 <?php
+require_once "funciones/helpers.php";
+require_once "modelos/modelo_tienda.php";
+require_once "modelos/modelo_direccion.php";
+
 
 $nombrepagina = "cliente";
 
@@ -14,8 +18,8 @@ if (isset($_GET['guardarInformacion'])){
 }
 
 
-
-
+$tiendas = obtenerTiendas ($conexion);
+$direcciones = obtenerDireccion($conexion);
 
 
 

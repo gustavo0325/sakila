@@ -4,5 +4,5 @@
 
 <?php include_once "partes/parte_menu.php"?>
 
-</body>
-</html>
+
+

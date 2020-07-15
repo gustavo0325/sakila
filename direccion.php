@@ -1,6 +1,14 @@
 <?php
+//incluir los modelos
+require_once "funciones/helpers.php";
+require_once "modelos/modelo_ciudad.php";
+require_once "modelos/modelo_direccion.php";
 
 $nombrepagina = "Direccion";
+
+$ciudades = obtenerCiudades($conexion);
+$direcciones = obtenerDireccion($conexion);
+
 
 //declarar variable para enviar los archivos
 

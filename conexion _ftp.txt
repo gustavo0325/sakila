@@ -9,4 +9,12 @@ nombre usuario: gustavo0325
 contraseña: justyn2503
 
 
-informacion de Base de datos
+informacion de Base de datos 000 webhost
+
+host:localhost
+
+nombre de la Base de datos: id12551305_sakila
+
+usuario: id12551305_gustavo_000webhost
+
+contraseña: QT+_kOJe0*FGcy1/
