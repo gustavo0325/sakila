@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-md-5">
 
-        <form action="actor.php" method="get">
+        <form action="actor.php" method="post">
 
             <label for="pelicula">Título de la película: </label>
             <input type="text" name="pelicula" id="pelicula" class="form-control">

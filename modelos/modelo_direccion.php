@@ -2,7 +2,7 @@
 
 require_once "config/conexion.php";
 
-function obtenerDireccion ($conexion)
+function obtenerDireccion($conexion)
 {
     $sql = "SELECT address_id, address FROM address;";
 

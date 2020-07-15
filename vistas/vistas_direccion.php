@@ -9,7 +9,7 @@
 <div class="row">
 
     <div class="col-md-5">
-        <form action="direccion.php" method="get">
+        <form action="direccion.php" method="post">
 
             <div class="mb-3">
                 <label for="direccion">Direccion</label>

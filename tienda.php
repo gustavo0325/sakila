@@ -10,6 +10,4 @@ $direcciones = obtenerDireccion($conexion);
 $informaciontiendas = obtenerinformacionTiendas($conexion);
 
 
-
-
 include_once "vistas/vistas_tienda.php";

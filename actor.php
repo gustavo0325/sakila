@@ -6,14 +6,31 @@ $nombrepagina = "Actor";
 
 //declarar las variables
 
-$actor = $_GET['nombreActor'] ??"";
-$apellidoActor = $_GET['apellidoActor'] ??"";
+$nombreActor = $_POST['nombreActor'] ?? "";
+$apellidoActor = $_POST['apellidoActor'] ?? "";
 
 
 //asegurarnos de que el usurio haya hecho click en el boton guardar Actor
-if (isset($_GET['guardar_actor'])){
+if (isset($_POST['guardar_actor'])) {
 
-    //codigo para guardar en la base de datos
+
+    ImprimirArrays($_POST);
+
+//validar los datos
+    //TODO
+
+    $datos = compact('nombreActor', 'apellidoActor');
+
+
+    //insertar los datos
+    $insertado = insertarActores($conexion, $datos);
+
+    if ($insertado) {
+
+        echo "Datos insertados correctamente.";
+    } else {
+        echo "NO se insertaron los datos.";
+    }
 
 };
 

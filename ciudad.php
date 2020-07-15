@@ -3,18 +3,18 @@ require_once "funciones/helpers.php";
 require_once "modelos/modelo_pais.php";
 require_once "modelos/modelo_ciudad.php";
 
-$nombrepagina =  "ciudad";
+$nombrepagina = "ciudad";
 
 $paises = obtenerPaises($conexion);
 $ciudades = obtenerCiudades($conexion);
 
 //declarar variables
-$pais = $_GET['pais'] ?? "";
-$ciudad = $_GET['ciudad'] ?? "";
+$pais = $_POST['pais'] ?? "";
+$ciudad = $_POST['ciudad'] ?? "";
 
-if (isset($_GET['guardarCiudad'])){
+if (isset($_POST['guardarCiudad'])) {
 
-  //codigo para la base de datos
+    //codigo para la base de datos
 
 };
 

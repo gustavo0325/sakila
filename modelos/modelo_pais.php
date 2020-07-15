@@ -1,7 +1,8 @@
 <?php
 require_once "config/conexion.php";
 
-function obtenerPaises($conexion){
+function obtenerPaises($conexion)
+{
 
     $sql = "SELECT * FROM country;";
 

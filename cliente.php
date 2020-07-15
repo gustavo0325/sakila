@@ -6,22 +6,20 @@ require_once "modelos/modelo_direccion.php";
 
 $nombrepagina = "cliente";
 
-$nombreCliente = $_GET['nombre'] ?? "";
-$apellidoCliente = $_GET['apellido'] ?? "";
-$emailCliente = $_GET['email'] ?? "";
+$nombreCliente = $_POST['nombre'] ?? "";
+$apellidoCliente = $_POST['apellido'] ?? "";
+$emailCliente = $_POST['email'] ?? "";
 
 
-if (isset($_GET['guardarInformacion'])){
+if (isset($_POST['guardarInformacion'])) {
 
     //codigo para la base de datos
 
 }
 
 
-$tiendas = obtenerTiendas ($conexion);
+$tiendas = obtenerTiendas($conexion);
 $direcciones = obtenerDireccion($conexion);
-
-
 
 
 include_once "vistas/vistas_cliente.php";

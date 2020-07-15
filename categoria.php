@@ -3,10 +3,10 @@ require_once "modelos/modelo_categoria.php";
 require_once "funciones/helpers.php";
 $nombrepagina = "Categoria";
 
-$categoria = $_GET['categoria'] ?? "";
+$categoria = $_POST['categoria'] ?? "";
 
 
-if (isset($_GET['guardarCategoria'])){
+if (isset($_POST['guardarCategoria'])) {
 
 
     //codigo para la base de datos

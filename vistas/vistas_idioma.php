@@ -9,7 +9,7 @@
     <div class="row">
 
         <div class="col-md-5">
-            <form action="idioma.php" method="get">
+            <form action="idioma.php" method="post">
 
                 <div class="mb-3">
                     <label for="idioma">Idioma</label>
@@ -24,9 +24,6 @@
     <button type="submit" name="guardarIdioma" class="btn btn-primary">guardar idioma</button>
 
 </div>
-
-
-
 
 
 <hr class="bg-light">

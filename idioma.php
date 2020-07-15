@@ -8,18 +8,17 @@ $idiomas = obtenerIdiomas($conexion);
 
 //daclarar variable para idioma
 
-$nombreIdioma = $_GET['idioma'] ?? "";
+$nombreIdioma = $_POST['idioma'] ?? "";
 
 
 //if para saber cuando el usuario haga click
 
-if (isset($_GET['guardarIdioma'])){
+if (isset($_POST['guardarIdioma'])) {
 
     //codigo para la base de datos
 };
 //variable para obtener la tabla idioma
 $idiomas = obtenerIdiomas($conexion);
-
 
 
 include_once "vistas/vistas_idioma.php";

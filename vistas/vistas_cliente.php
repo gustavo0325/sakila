@@ -10,7 +10,7 @@
     <div class="row">
 
         <div class="col-md-5">
-            <div action="cliente.php" method="get">
+            <div action="cliente.php" method="post">
 
                 <label class="mt-3" for="tienda">Tienda:</label>
                 <select class="form-select" name="tienda" id="tienda">

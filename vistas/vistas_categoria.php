@@ -10,7 +10,7 @@
     <div class="row">
 
         <div class="col-md-5">
-            <form action="categoria.php" method="get">
+            <form action="categoria.php" method="post">
 
                 <div class="mb-3">
                     <label for="categoria">categoria</label>

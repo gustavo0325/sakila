@@ -1,7 +1,6 @@
+<?php include_once "partes/parte_head.php" ?>
 
-<?php include_once "partes/parte_head.php"?>
-
-<?php include_once "partes/parte_menu.php"?>
+<?php include_once "partes/parte_menu.php" ?>
 
 
 <hr class="bg-light">
@@ -12,7 +11,7 @@
 
         <div class="col-md-5">
 
-            <form action="pais.php" method="get">
+            <form action="pais.php" method="post">
 
                 <div class="mb-3">
                     <label for="pais">Pais</label>

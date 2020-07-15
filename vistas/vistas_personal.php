@@ -11,7 +11,7 @@
 
         <div class="col-md-5">
 
-            <div action="personal.php" method="get">
+            <div action="personal.php" method="post">
 
                 <label class="mt-3" for="nombre">Nombre:</label>
                 <input type="text" name="nombre" id="nombre" class="form-control">

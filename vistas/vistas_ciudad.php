@@ -10,7 +10,7 @@
     <div class="row">
 
         <div class="col-md-5">
-            <form action="ciudad.php" method="get">
+            <form action="ciudad.php" method="post">
 
 
                 <div class="mb-3">
@@ -26,14 +26,13 @@
 
                         <?php
 
-                        foreach ($paises as $pais){
+                        foreach ($paises as $pais) {
 
                             echo "<option value=\"{$pais[country_id]}}\">{$pais["country"]}</option>";
 
                         }
 
                         ?>
-
 
 
                     </select>
@@ -66,14 +65,14 @@
             <tbody>
 
             <?php
-            foreach ($ciudades as $ciudad){
+            foreach ($ciudades as $ciudad) {
 
 
-                echo"<tr>
+                echo "<tr>
                 <th scope=\"row\">{$ciudad['city_id']}</th>
                 <td>{$ciudad['city']}</td>
                 <td>{$ciudad['country']}</td>
-            </tr>" ;
+            </tr>";
             }
 
             ?>

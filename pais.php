@@ -1,6 +1,6 @@
 <?php
 require_once "funciones/helpers.php";
-require_once"modelos/modelo_pais.php";
+require_once "modelos/modelo_pais.php";
 
 //variable para el titulo de la pag
 
@@ -8,10 +8,10 @@ $nombrepagina = "pais";
 
 //declaro variable para guadar los datos de pais
 
-$Pais = $_GET['pais'] ?? "";
+$Pais = $_POST['pais'] ?? "";
 
 
-if (isset($_GET['guardarPais'])){
+if (isset($_POST['guardarPais'])) {
 
 
     //codigo para la base de datos

@@ -7,19 +7,19 @@ require_once "modelos/modelo_peliculas.php";
 $nombrepagina = "Pelicula";
 
 
-$pelicula =$_GET['pelicula'] ?? "";
-$descripcion =$_GET['descripcion'] ?? "";
-$añoLanzamiento =$_GET['añoLanzamiento'] ?? "";
-$idioma =$_GET['idioma'] ?? "";
-$idiomaOriginal =$_GET['idiomaOriginal'] ?? "";
-$duracionAlquiler =$_GET['duracionAlquiler'] ?? "";
-$tarifaAlquiler =$_GET['tarifaAlquiler'] ?? "";
-$tamaño =$_GET['tamaño'] ?? "";
-$costoDeReemplazo =$_GET['costoDeReemplazo'] ?? "";
-$clasificacion =$_GET['clasificacion'] ?? "";
-$caracteristicasEspeciales =$_GET['caracteristicasEspeciales'] ?? "";
+$pelicula = $_POST['pelicula'] ?? "";
+$descripcion = $_POST['descripcion'] ?? "";
+$añoLanzamiento = $_POST['añoLanzamiento'] ?? "";
+$idioma = $_POST['idioma'] ?? "";
+$idiomaOriginal = $_POST['idiomaOriginal'] ?? "";
+$duracionAlquiler = $_POST['duracionAlquiler'] ?? "";
+$tarifaAlquiler = $_POST['tarifaAlquiler'] ?? "";
+$tamaño = $_POST['tamaño'] ?? "";
+$costoDeReemplazo = $_POST['costoDeReemplazo'] ?? "";
+$clasificacion = $_POST['clasificacion'] ?? "";
+$caracteristicasEspeciales = $_POST['caracteristicasEspeciales'] ?? "";
 
-if (isset($_GET['btnGuardarPelicula'])){
+if (isset($_POST['btnGuardarPelicula'])) {
 
     //guardar datos de base de datos
 

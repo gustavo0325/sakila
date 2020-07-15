@@ -9,25 +9,21 @@ $tiendas = obtenerTiendas($conexion);
 $direcciones = obtenerDireccion($conexion);
 
 
-$nombrePersonal = $_GET['nombre'] ?? "";
-$apellidoPersonal = $_GET['apellido'] ?? "";
-$direccionPersonal = $_GET['direccion'] ?? "";
-$fotoPersonal = $_GET['foto'] ?? "";
-$correoPersonal = $_GET['correo'] ?? "";
-$tiendaPersonal = $_GET['tienda'] ?? "";
-$nombreUsuarioPersonal = $_GET['nombreUsuario'] ?? "";
-$contraseñaPersonal = $_GET['contraseña'] ?? "";
+$nombrePersonal = $_POST['nombre'] ?? "";
+$apellidoPersonal = $_POST['apellido'] ?? "";
+$direccionPersonal = $_POST['direccion'] ?? "";
+$fotoPersonal = $_POST['foto'] ?? "";
+$correoPersonal = $_POST['correo'] ?? "";
+$tiendaPersonal = $_POST['tienda'] ?? "";
+$nombreUsuarioPersonal = $_POST['nombreUsuario'] ?? "";
+$contraseñaPersonal = $_POST['contraseña'] ?? "";
 
-if (isset($_GET['btnGuardarPersonal'])){
+if (isset($_POST['btnGuardarPersonal'])) {
 
     //codigo para la base de datos
 
 
 };
-
-
-
-
 
 
 include_once "vistas/vistas_personal.php";
