@@ -1,6 +1,6 @@
 <?php
 //incluir los modelos
-require_once "funciones/helpers.php";
+require_once "funciones/ayudante.php";
 require_once "modelos/modelo_tienda.php";
 require_once "modelos/modelo_direccion.php";
 

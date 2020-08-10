@@ -1,6 +1,7 @@
 <?php include_once "partes/parte_head.php" ?>
 
 <?php include_once "partes/parte_menu.php" ?>
+<h1 class="text-light"> <?php echo $nombrepagina; ?> </h1>
 
 
 <hr class="bg-light">
@@ -11,7 +12,7 @@
 
         <div class="col-md-5">
 
-            <div action="personal.php" method="post">
+            <form action="personal.php" method="post">
 
                 <label class="mt-3" for="nombre">Nombre:</label>
                 <input type="text" name="nombre" id="nombre" class="form-control">
@@ -63,20 +64,49 @@
 
                 </select>
 
-                <div class="mt-4"
-                <label for="activo">activo</label>
+                <label for="activo">activo:</label>
                 <input type="checkbox" name="activo" id="activo">
-            </div>
-
-            <label class="mt-3" for="nombreUsuario">Nombre de Usuario:</label>
-            <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control">
 
 
-            <label class="mt-3" for="contraseña">Contraseña:</label>
-            <input type="password" name="contraseña" id="contraseña" class="form-control">
+                <label class="mt-3" for="nombreUsuario">Nombre de Usuario:</label>
+                <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control">
 
 
-            <button type="submit" name="btnGuardarPersonal" class="btn btn-primary mt-3">Guardar Datos</button>
+                <label class="mt-3" for="contrasena">Contraseña:</label>
+                <input type="password" name="contrasena" id="contrasena" class="form-control">
+
+
+                <button type="submit" name="btnGuardarPersonal" class="btn btn-primary mt-3">Guardar Datos</button>
+
+
+            </form>
+
+
+            <?php
+
+            if (isset($error)) {
+                echo "  <div class=\"alert alert-danger alert-dismissible fade show mt-3\" role=\"alert\">
+
+                                {$error}
+                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                            <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                </div>";
+            }
+
+
+            if (isset($personalInsertado)) {
+
+                echo "  <div class=\"alert alert-success alert-dismissible fade show mt-3\" role=\"alert\">
+                                los datos se han insertado correctamente
+                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                            <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                </div>";
+
+            }
+
+            ?>
 
 
             <br>
@@ -84,3 +114,49 @@
     </div>
 
 
+    <hr class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+
+                <table class="table table-hover table-dark table-striped">
+
+                    <thead>
+                    <th scope="col">ID_tienda</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">ID_address</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">store_id</th>
+                    <th scope="col">Activo</th>
+                    <th scope="col">username</th>
+                    <th scope="col">contraseña</th>
+                    </thead>
+
+                    <tbody>
+
+                    <?php
+                    foreach ($personales as $personal) {
+
+
+                        echo "<tr>
+                <th scope=\"row\">{$personal['staff_id']}</th>
+                <td>{$personal['first_name']}</td>
+                <td>{$personal['last_name']}</td>
+                <td>{$personal['address_id']}</td>
+                <td>{$personal['email']}</td>
+                <td>{$personal['store_id']}</td>
+                <td>{$personal['active']}</td>
+                <td>{$personal['username']}</td>
+                <td>{$personal['password']}</td>
+            </tr>";
+                    }
+
+                    ?>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>

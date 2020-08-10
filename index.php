@@ -1,5 +1,5 @@
 <?php
-require_once "funciones/helpers.php";
+require_once "funciones/ayudante.php";
 $nombrepagina = "principal";
 
 

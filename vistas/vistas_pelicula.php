@@ -1,7 +1,7 @@
 <?php include_once "partes/parte_head.php" ?>
 
 <?php include_once "partes/parte_menu.php" ?>
-
+<h1 class="text-light"> <?php echo $nombrepagina; ?> </h1>
 
 <hr class="bg-light">
 
@@ -9,7 +9,33 @@
 <div class="row">
     <div class="col-md-5">
 
-        <form action="actor.php" method="post">
+        <form action="pelicula.php" method="post">
+
+            <?php
+
+            if (isset($error)) {
+                echo "  <div class=\"alert alert-danger alert-dismissible fade show mt-3\" role=\"alert\">
+
+                                {$error}
+                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                            <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                </div>";
+            }
+
+
+            if (isset($peliculaInsertada)) {
+
+                echo "  <div class=\"alert alert-success alert-dismissible fade show mt-3\" role=\"alert\">
+                                los datos se han insertado correctamente
+                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                            <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                </div>";
+
+            }
+
+            ?>
 
             <label for="pelicula">Título de la película: </label>
             <input type="text" name="pelicula" id="pelicula" class="form-control">

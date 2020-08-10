@@ -1,41 +1,131 @@
 <?php
-require_once "funciones/helpers.php";
+require_once "funciones/ayudante.php";
 require_once "modelos/modelo_actor.php";
+
 
 $nombrepagina = "Actor";
 
-//declarar las variables
 
+//declarar variables
 $nombreActor = $_POST['nombreActor'] ?? "";
 $apellidoActor = $_POST['apellidoActor'] ?? "";
+$idActor = $_POST['idActor'] ?? "";
+
+//aseguramos que elusuario aga hecho click en el boton guardar
+
+try {
+    if (isset($_POST['guardar_Actor'])) {
 
 
-//asegurarnos de que el usurio haya hecho click en el boton guardar Actor
-if (isset($_POST['guardar_actor'])) {
+        //validar los datos
+        if (empty($nombreActor)) {
+
+            throw new Exception("El nombre no puede estar vacio");
+
+        }
+
+        if (empty($apellidoActor)) {
+
+            throw new Exception("El apellido esta vacio. por favor de llenarlo.");
+        }
+
+        //preparar el array con los datos
+        $datos = compact('nombreActor', 'apellidoActor');
+
+        //insertar los datos
+        if (empty($idActor)) {
+            $actorInsertado = insertarActores($conexion, $datos);
+
+            $_SESSION['mensaje'] = "Los datos se han insertado correctamente..";
+
+            //Lanzar un error si no se inserto correctamente los datos
+            if (!$actorInsertado) {
+
+                throw new Exception("Ocurrio un error al insertar los datos del actor");
+            }
+        } else {
+
+            //Agregar el id al array datos
+            $datos['idActor'] = $idActor;
+
+            //actualizar datos
+            $actorEditado = editarActores($conexion, $datos);
+
+            $_SESSION['mensaje'] = "Los datos fueron editados correctamente";
 
 
-    ImprimirArrays($_POST);
+            if (!$actorEditado) {
 
-//validar los datos
-    //TODO
-
-    $datos = compact('nombreActor', 'apellidoActor');
+                throw new Exception("Ocurrio un error al editar los datos");
+            }
 
 
-    //insertar los datos
-    $insertado = insertarActores($conexion, $datos);
+        }
 
-    if ($insertado) {
+        //redireccionar la pagina
 
-        echo "Datos insertados correctamente.";
-    } else {
-        echo "NO se insertaron los datos.";
+        header("Location: actor.php", true, 303);
+
     }
 
-};
+    //aseguramos que elusuario aga hecho click en el boton eliminar
 
-//variable para la tabla actores
+    if (isset($_POST['eliminarActor'])) {
+        $idActor = $_POST['eliminarActor'] ?? "";
+
+
+        //Validar
+        if (empty($idActor)) {
+
+            throw new Exception("El id actor no puede estar vacio");
+
+        }
+        //Preparar array
+        $datos = compact('idActor');
+
+        //Eliminar
+        $eliminado = eliminarActores($conexion, $datos);
+
+        $_SESSION['mensaje'] = "Los datos fueron eliminados correctamente";
+
+        //Lanzar error
+        if (!$eliminado) {
+
+            throw new Exception("los datos no se eliminaron correctamente");
+        }
+
+        //redireccionar
+        header("Location:actor.php", true, 303);
+
+    }
+
+
+    if (isset($_POST['editarActor'])) {
+        $idActor = $_POST['editarActor'] ?? "";
+
+        if (empty($idActor)) {
+
+            throw new Exception("El valor del id esta vacio");
+
+        }
+
+        $datos = compact('idActor');
+
+        $resultado = obtenerActorPorId($conexion, $datos);
+
+        $nombreActor = $resultado['first_name'];
+        $apellidoActor = $resultado['last_name'];
+
+
+    }
+
+} catch (Exception $e) {
+
+    $error = $e->getMessage();
+}
+
 
 $actores = obtenerActores($conexion);
+
 
 include_once "vistas/vistas_actor.php";
