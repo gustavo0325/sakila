@@ -53,8 +53,7 @@ try {
 
 
         //redireccionar la pagina
-        header("Location: categoria.php", true, 303);
-
+        redireccionar("categoria.php");
     }
 
 
@@ -82,8 +81,7 @@ try {
         }
 
         //redireccionar
-        header("Location:categoria.php", true, 303);
-
+        redireccionar("categoria.php");
     }
 
 

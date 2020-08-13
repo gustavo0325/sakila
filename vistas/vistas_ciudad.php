@@ -67,7 +67,14 @@
 
 <hr class="bg-light">
 
-<div class="row container">
+<?php if (empty($ciudades)) { ?>
+    <div class="alert alert-info" role="alert">
+        <img src="static/img/empty.svg" alt="imagen vacia" width="100px">
+        No hay datos registrados..
+    </div>
+<?php } else{ ?>
+<div class="container">
+<div class="row">
     <div class="col-md-9">
         <form action="ciudad.php" method="post">
 
@@ -105,6 +112,9 @@
 
         </form>
     </div>
+</div>
+
+    <?php  }?>
 </div>
 
 

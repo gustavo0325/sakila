@@ -12,6 +12,7 @@ $apellidoCliente = $_POST['apellido'] ?? "";
 $emailCliente = $_POST['email'] ?? "";
 $idTienda = $_POST['tienda'] ?? "";
 $idDireccion = $_POST['direccion'] ?? "";
+$activo = $_POST['activo'] ?? "";
 
 
 try {
@@ -38,11 +39,12 @@ try {
         }
 
 
-        $datos = compact('nombreCliente', 'apellidoCliente', 'emailCliente', 'idTienda', 'idDireccion');
+        //insertar datos
+        $datos = compact('nombreCliente', 'apellidoCliente', 'emailCliente', 'idTienda', 'idDireccion', 'activo');
 
+        $ClienteInsertado = insertarCliente($conexion, $datos);
 
-        $ClienteInsertado = insertarCliente($conexion,$datos);
-
+        $_SESSION['mensaje'] = "Los datos se insertaron correctamente";
 
         if (!$ClienteInsertado) {
 
@@ -50,6 +52,8 @@ try {
 
         }
 
+        //redireccionar la pag
+        redireccionar("cliente.php");
     }
 } catch (Exception $e) {
 

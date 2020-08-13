@@ -17,7 +17,7 @@
 
                 <div class="mb-3">
                     <label for="pais">Pais</label>
-                    <input type="text" name="pais" id="pais" class= "form-control" value= "<?= $pais ?>">
+                    <input type="text" name="pais" id="pais" class="form-control" value="<?= $pais ?>">
 
                 </div>
 
@@ -37,25 +37,35 @@
 
 <hr class="bg-light">
 
-<div class="row container">
+
+<?php if (empty($paises)) { ?>
+    <div class="alert alert-info" role="alert">
+        <img src="static/img/empty.svg" alt="imagen vacia" width="100px">
+        No hay datos registrados..
+    </div>
+<?php } else{ ?>
+
+<div class="container">
+
+<div class="row">
     <div class="col-md-5">
-
-        <table class="table table-hover table-dark table-striped">
-            <form action="pais.php" method="post">
-
-            <thead>
-            <th scope="col">ID</th>
-            <th scope="col">Pais</th>
-            <th scope="col">Acciones</th>
-            </thead>
-
-            <tbody>
-
-            <?php
-            foreach ($paises as $pais) {
+        <form action="pais.php" method="post">
+            <table class="table table-hover table-dark table-striped">
 
 
-                echo "<tr>
+                <thead>
+                <th scope="col">ID</th>
+                <th scope="col">Pais</th>
+                <th scope="col">Acciones</th>
+                </thead>
+
+                <tbody>
+
+                <?php
+                foreach ($paises as $pais) {
+
+
+                    echo "<tr>
                 <th scope=\"row\">{$pais['country_id']}</th>
                 <td>{$pais['country']}</td>
                   <td>
@@ -64,13 +74,16 @@
                  </td>
                
             </tr>";
-            }
+                }
 
-            ?>
+                ?>
 
-            </tbody>
+                </tbody>
 
-        </table>
+            </table>
         </form>
     </div>
+</div>
+
+    <?php } ?>
 </div>

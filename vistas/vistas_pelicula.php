@@ -12,29 +12,7 @@
         <form action="pelicula.php" method="post">
 
             <?php
-
-            if (isset($error)) {
-                echo "  <div class=\"alert alert-danger alert-dismissible fade show mt-3\" role=\"alert\">
-
-                                {$error}
-                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                            <span aria-hidden=\"true\">&times;</span>
-                    </button>
-                </div>";
-            }
-
-
-            if (isset($peliculaInsertada)) {
-
-                echo "  <div class=\"alert alert-success alert-dismissible fade show mt-3\" role=\"alert\">
-                                los datos se han insertado correctamente
-                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                            <span aria-hidden=\"true\">&times;</span>
-                    </button>
-                </div>";
-
-            }
-
+            include_once "partes/partes_mensaje.php";
             ?>
 
             <label for="pelicula">Título de la película: </label>
@@ -54,7 +32,7 @@
 
                 foreach ($idiomas as $idioma) {
 
-                    echo "<option value=\"{$idioma[ language_id]}}\">{$idioma['name']}</option>";
+                    echo "<option value=\"{$idioma[ language_id]}\">{$idioma['name']}</option>";
 
                 }
 
@@ -71,7 +49,7 @@
 
                 foreach ($idiomas as $idioma) {
 
-                    echo "<option value=\"{$idioma[ language_id]}}\">{$idioma['name']}</option>";
+                    echo "<option value=\"{$idioma[ language_id]}\">{$idioma['name']}</option>";
 
                 }
 
@@ -113,14 +91,31 @@
 
 <hr class="bg-light">
 
-<div class="row container">
-    <div class="col-md-5">
+<?php if (empty($peliculas)) { ?>
+    <div class="alert alert-info" role="alert">
+        <img src="static/img/empty.svg" alt="imagen vacia" width="100px">
+        No hay datos registrados..
+    </div>
+<?php } else{ ?>
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
 
         <table class="table table-hover table-dark table-striped">
 
             <thead>
             <th scope="col">ID de la pelicula</th>
             <th scope="col">Nombre de la pelicula</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Año lanzamiento</th>
+            <th scope="col">IDidioma</th>
+            <th scope="col">ID idioma original</th>
+            <th scope="col">renta duracion</th>
+            <th scope="col">Longitud</th>
+            <th scope="col">Costo de reemplazo</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Caracteristcas especiales</th>
+
 
             </thead>
 
@@ -133,6 +128,17 @@
                 echo "<tr>
                 <th scope=\"row\">{$pelicula['film_id']}</th>
                 <td>{$pelicula['title']}</td>
+                <td>{$pelicula['description']}</td>
+                 <td>{$pelicula['release_year']}</td>
+                  <td>{$pelicula['language_id']}</td>
+                   <td>{$pelicula['original_language_id']}</td>
+                    <td>{$pelicula['rental_duration']}</td>
+                     <td>{$pelicula['rental_rate']}</td>
+                      <td>{$pelicula['length']}</td>
+                       <td>{$pelicula['replacement_cost']}</td>
+                        <td>{$pelicula['rating']}</td>
+                         <td>{$pelicula['special_features']}</td>
+                 
                
             </tr>";
             }
@@ -145,6 +151,8 @@
     </div>
 </div>
 
+    <?php } ?>
+</div>
 
 
 

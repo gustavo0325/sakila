@@ -1,7 +1,7 @@
 <nav class="sticky-top">
     <ul class="nav  bg-dark ">
 
-        <li class="nav-item "><a class=" nav-link text-success" style="font-size:18px" href="index.php"><i
+        <li class="nav-item"><a class=" nav-link text-success" style="font-size:18px" href="index.php"><i
                         class="fas fa-film mr-1"></i>Sakila` Films</a></li>
 
         <li class="nav-item ">

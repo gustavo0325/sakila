@@ -54,17 +54,14 @@ try {
             throw new Exception("La contraseña no puede estar vacia");
         }
 
-        if (empty($activo)) {
-            throw new Exception("El activo non puede estar vacio");
-
-        }
 
         $datos = compact('nombrePersonal', 'apellidoPersonal', 'direccionPersonal', 'fotoPersonal', 'correoPersonal', 'tiendaPersonal', 'nombreUsuarioPersonal', 'contrasenaPersonal', 'activo');
+
 
 //insertarDatos
         $personalInsertado = insertarPersonal($conexion, $datos);
 
-        $mensaje = "Todo esta insertado correctamente";
+        $_SESSION['mensaje'] = "Los datos se han insertado correctamente";
 
         if (!$personalInsertado) {
 
@@ -72,7 +69,7 @@ try {
 
         }
 
-
+        redireccionar("personal.php");
     }
 
 

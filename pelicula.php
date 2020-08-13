@@ -19,6 +19,7 @@ $nombrepagina = "Pelicula";
         $clasificacion = $_POST['clasificacion'] ?? "";
         $caracteristicasEspeciales = $_POST['caracteristicasEspeciales'] ?? "";
 
+
 try {
     if (isset($_POST['btnGuardarPelicula'])) {
 
@@ -72,13 +73,18 @@ try {
         $datos= compact('pelicula','descripcion','anoLanzamiento','idIdioma','idIdiomaOriginal',
         'duracionAlquiler','tarifaAlquiler','tamaño','costoDeReemplazo','clasificacion','caracteristicasEspeciales');
 
+
         $peliculaInsertada = insertarpeliculas ($conexion,$datos);
+
+        $_SESSION['mensaje']= "Los datos se insertaron correctamente";
 
         if (!$peliculaInsertada) {
 
             throw  new Exception("Los datos no se han insertado correctamente");
 
         }
+
+        redireccionar("pelicula.php");
 
     }
 } catch (Exception $e) {

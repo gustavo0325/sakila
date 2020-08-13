@@ -11,7 +11,6 @@ $nombrepagina = "pais";
 $pais = $_POST['pais'] ?? "";
 $idPais = $_POST['idPais'] ?? "";
 
-
 //aseguramos que elusuario aga hecho click en el boton guardar
 
 try {
@@ -25,9 +24,12 @@ try {
         //preparar el array con los datos
         $datos = compact('pais');
 
-            //insertar los datos
+
+
+        //insertar los datos
         if (empty($idPais)) {
-            $paisInsertado = insertarPais($conexion, $datos);//Lanzar un error si no se inserto correctamente los datos
+
+            $paisInsertado = insertarPais($conexion, $datos);
 
             $_SESSION['mensaje'] = "Los datos se han insertado correctamente";
 
@@ -55,8 +57,7 @@ try {
         }
 
         //redireccionar la pagina
-        header("Location: pais.php", true, 303);
-
+        redireccionar("pais.php");
     }
 
 
@@ -83,8 +84,12 @@ try {
 
             throw new Exception("los datos no se eliminaron correctamente");
         }
-    }
 
+
+        //redireccionar la pagina
+        redireccionar("pais.php");
+
+    }
 
 
     if (isset($_POST['editarPais'])) {
@@ -101,9 +106,6 @@ try {
 
         $pais = $resultado['country'];
 
-
-        //redireccionar la pagina
-        header("Location: pais.php", true, 303);
 
     }
 } catch (Exception $e) {

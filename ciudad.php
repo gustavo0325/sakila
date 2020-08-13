@@ -59,8 +59,7 @@ try {
 
         //redirrecionar la pagina
 
-        header("Location:ciudad.php", true, 303);
-
+        redireccionar("ciudad.php");
     }
 
 
@@ -88,7 +87,7 @@ try {
         }
 
         //redireccionar
-        header("Location:ciudad.php", true, 303);
+        redireccionar("ciudad.php");
     }
 
 

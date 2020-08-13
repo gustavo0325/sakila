@@ -14,9 +14,8 @@ $distrito = $_POST['distrito'] ?? "";
 $ciudad = $_POST['ciudad'] ?? "";
 $codigoPostal = $_POST['codigoPostal'] ?? "";
 $telefono = $_POST['telefono'] ?? "";
-
-ImprimirArrays($_POST);
 //cuando el usuario haga click en el boton guardarDireccion
+
 try {
     if (isset($_POST['guardarDireccion'])) {
 
@@ -45,11 +44,9 @@ try {
             throw new Exception("El telefono no puede estar vacio");
         }
 
-
-
+        //insertarDatos
         $datos = compact('direccion', 'direccion2', 'distrito', 'ciudad', 'codigoPostal', 'telefono');
 
-//insertarDatos
         $direccionInsertada = insertarDireccion($conexion, $datos);
 
         $_SESSION['mensaje'] = "los datos se han insertado corectamente..";
@@ -62,9 +59,8 @@ try {
         }
 
         //redireccionar la pagina
-        header("Location: direccion.php", true, 303);
-
-    };
+        redireccionar("direccion.php");
+    }
 } catch (Exception $e) {
 
     $error = $e->getMessage();

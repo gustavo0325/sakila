@@ -44,7 +44,7 @@ function obtenerCiudadesPorId($conexion,$datos){
 
 function editarCiudades($conexion,$datos){
 
-    $sql="UPDATE actor SET city = :nombreCiudad,country_id = :idCity WHERE city_id = :idCity;";
+    $sql="UPDATE city SET city = :nombreCiudad, country_id = :idPais WHERE city_id = :idCity;";
 
     return $conexion->prepare($sql)->execute($datos);
 

@@ -14,7 +14,7 @@ function obtenerDireccion($conexion)
 
 function insertarDireccion($conexion, $datos){
 
-    $sql = "INSERT INTO address (address, address2, district, city_id, postal_code, phone, ) 
+    $sql = "INSERT INTO address (address, address2, district, city_id, postal_code, phone) 
             VALUES (:direccion, :direccion2, :distrito, :ciudad, :codigoPostal, :telefono);";
 
     return $conexion->prepare($sql)->execute($datos);

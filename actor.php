@@ -32,6 +32,7 @@ try {
         //preparar el array con los datos
         $datos = compact('nombreActor', 'apellidoActor');
 
+
         //insertar los datos
         if (empty($idActor)) {
             $actorInsertado = insertarActores($conexion, $datos);
@@ -64,8 +65,7 @@ try {
 
         //redireccionar la pagina
 
-        header("Location: actor.php", true, 303);
-
+        redireccionar("actor.php");
     }
 
     //aseguramos que elusuario aga hecho click en el boton eliminar
@@ -95,8 +95,7 @@ try {
         }
 
         //redireccionar
-        header("Location:actor.php", true, 303);
-
+        redireccionar("actor.php");
     }
 
 

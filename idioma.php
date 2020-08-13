@@ -23,6 +23,9 @@ try {
         //preparar el array con los datos
         $datos = compact('nombreIdioma');
 
+
+
+
         //insertar los datos
 
         if (empty($idIdioma)) {
@@ -53,8 +56,7 @@ try {
         }
         //redireccionar la pagina
 
-        header("Location: idioma.php", true, 303);
-
+        redireccionar("idioma.php");
     }
     //aseguramos que elusuario aga hecho click en el boton eliminar
 
@@ -83,8 +85,7 @@ try {
         }
 
         //redireccionar
-        header("Location:idioma.php", true, 303);
-
+        redireccionar("idioma.php");
     }
 
 

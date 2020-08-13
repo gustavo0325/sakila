@@ -48,3 +48,4 @@ function editarIdiomas($conexion, $datos){
 
 
 }
+

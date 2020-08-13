@@ -20,7 +20,7 @@
 
                     foreach ($tiendas as $tienda) {
 
-                        echo "<option value=\"{$tienda[store_id]}}\">{$tienda["store_id"]}</option>";
+                        echo "<option value=\"{$tienda[store_id]}\">{$tienda["store_id"]}</option>";
 
                     }
 
@@ -56,7 +56,7 @@
 
                         foreach ($direcciones as $direccion) {
 
-                            echo "<option value=\"{$direccion[address_id]}}\">{$direccion['address']}</option>";
+                            echo "<option value=\"{$direccion[address_id]}\">{$direccion['address']}</option>";
 
                         }
 
@@ -77,35 +77,20 @@
             </form>
 
             <?php
-
-            if (isset($error)) {
-                echo "  <div class=\"alert alert-danger alert-dismissible fade show mt-3\" role=\"alert\">
-
-                                {$error}
-                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                            <span aria-hidden=\"true\">&times;</span>
-                    </button>
-                </div>";
-            }
-
-
-            if (isset($clienteInsertado)) {
-
-                echo "  <div class=\"alert alert-success alert-dismissible fade show mt-3\" role=\"alert\">
-                                Los datos de la categoria se han insertado correctamente
-                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                            <span aria-hidden=\"true\">&times;</span>
-                    </button>
-                </div>";
-
-            }
-
+            include_once "partes/partes_mensaje.php";
             ?>
 
         </div>
     </div>
 
     <hr class="bg-light">
+
+    <?php if (empty($clientes)) { ?>
+        <div class="alert alert-info" role="alert">
+            <img src="static/img/empty.svg" alt="imagen vacia" width="100px">
+            No hay datos registrados..
+        </div>
+    <?php } else{ ?>
     <div class="container">
         <div class="row">
             <div class="col-md-9">
@@ -148,6 +133,7 @@
                 </table>
             </div>
         </div>
+        <?php }?>
     </div>
 
 

@@ -23,7 +23,7 @@
 
                         foreach ($informaciontiendas as $infotienda) {
 
-                            echo "<option value=\"{$infotienda[manager_staff_id]}}\">{$infotienda["first_name"]}</option>";
+                            echo "<option value=\"{$infotienda[manager_staff_id]}\">{$infotienda["first_name"]}</option>";
 
                         }
 
@@ -64,7 +64,14 @@
 
     <hr class="bg-light">
 
-    <div class="row container">
+    <?php if (empty($tiendas)) { ?>
+        <div class="alert alert-info" role="alert">
+            <img src="static/img/empty.svg" alt="imagen vacia" width="100px">
+            No hay datos registrados..
+        </div>
+    <?php } else{ ?>
+<div class="container">
+    <div class="row">
         <div class="col-md-9">
 
             <table class="table table-hover table-dark table-striped">
@@ -96,5 +103,7 @@
         </div>
     </div>
 
+    <?php } ?>
 
+</div>
 

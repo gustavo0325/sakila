@@ -40,9 +40,15 @@
 
     </div>
 
-
-
 <hr class="bg-light">
+
+    <?php if(empty($actores)) { ?>
+    <div class="alert alert-info" role="alert">
+        <img src="static/img/empty.svg" alt="imagen vacia" width="100px">
+        No hay datos registrados..
+    </div>
+    <?php } else{ ?>
+
 <div class="container">
     <div class="row">
         <div class="col-md-9">
@@ -82,6 +88,8 @@
             </form>
         </div>
     </div>
+
+    <?php }?>
 </div>
 
 

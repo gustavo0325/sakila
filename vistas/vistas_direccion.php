@@ -56,7 +56,6 @@
             </div>
 
 
-
             <button type="submit" name="guardarDireccion" class="btn btn-primary">Guardar datos</button>
 
 
@@ -73,29 +72,37 @@
 
 <hr class="bg-light">
 
-<div class="row container">
-    <div class="col-lg-12">
 
-        <table class="table table-hover table-dark table-striped">
+<?php if (empty($direcciones)) { ?>
+    <div class="alert alert-info" role="alert">
+        <img src="static/img/empty.svg" alt="imagen vacia" width="100px">
+        No hay datos registrados..
+    </div>
+<?php } else{ ?>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
 
-            <thead>
-            <th scope="col">ID_direccion</th>
-            <th scope="col">Direccion</th>
-            <th scope="col">Direccion2</th>
-            <th scope="col">Distrito</th>
-            <th scope="col">ID_ciudad</th>
-            <th scope="col">codigo_postal</th>
-            <th scope="col">telefono</th>
-            <th scope="col">fecha</th>
-            </thead>
+            <table class="table table-hover table-dark table-striped">
 
-            <tbody>
+                <thead>
+                <th scope="col">ID_direccion</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Direccion2</th>
+                <th scope="col">Distrito</th>
+                <th scope="col">ID_ciudad</th>
+                <th scope="col">codigo_postal</th>
+                <th scope="col">telefono</th>
+                <th scope="col">fecha</th>
+                </thead>
 
-            <?php
-            foreach ($direcciones as $direcion) {
+                <tbody>
+
+                <?php
+                foreach ($direcciones as $direcion) {
 
 
-                echo "<tr>
+                    echo "<tr>
                 <th scope=\"row\">{$direcion['address_id']}</th>
                 <td>{$direcion['address']}</td>
                 <td>{$direcion['address2']}</td>
@@ -105,12 +112,14 @@
                       <td>{$direcion['phone']}</td>
                         <td>{$direcion['last_update']}</td>
             </tr>";
-            }
+                }
 
-            ?>
+                ?>
 
-            </tbody>
+                </tbody>
 
-        </table>
+            </table>
+        </div>
     </div>
+    <?php } ?>
 </div>
